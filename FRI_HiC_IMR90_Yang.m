@@ -15,9 +15,9 @@ end
 
 %chr='chr19';
 
-res_str='5kb';
+res_str='100kb';
 
-nres=5000;
+nres=100000;
 span = 2e5/nres;  
 
 % It seems results for MAPQG0 is better than MAPQGE30!! Need to check out! 
@@ -122,15 +122,15 @@ fprintf('%d chromosom %f \n',chr_num,tt);
 
 p=polyfit(x,y,1);
 plot(y);hold on;
-ylim([0,0.02]);
-xlabel('Locus index (5kb)')
+ylim([0,0.05]);
+xlabel('Locus index (100kb)')
 ylabel('Normalized DNase')
-xlim([0,13000]);
+xlim([0,700]);
 %plot(x,'g','linewidth',1.5);hold on;
 plot(p(1)*x+p(2)); hold on;
 set(legend('DNase','FRI'),'FontSize',12);
 set(text(150,0.019,'Chromosome 20'),'FontSize',12);
 %tt1=corr(hfri,dnasevec(idx_hic),'type', 'Spearman');  %% Spearman correlation value for nonzero flexibility regions. 
 end
-disp(['toc计算最后一次循环运行时间',num2str(toc)]);
+disp(['toc: ',num2str(toc)]);
 
